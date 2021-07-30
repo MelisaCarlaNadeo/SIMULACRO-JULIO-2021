@@ -15,86 +15,62 @@ d)  El tipo de la compra más barata. (sobre el Bruto sin descuento)
 
 function mostrar()
 {
+  var seguir;
   var productoIngresado;
   var cantidaddebolsas;
   var precioporbolsa;
-  var seguir;
-  var bolsasYerba;
-  var precioYerba;
-  var bolsasAzucar;
-  var precioAzucar;
-  var bolsasCafe;
-  var precioCafe;
-  var bolsasTotal;
-  var precioTotal;
-  var descuento;
-  var precioDescuento;
-  var mayorcantidadbolsas;
-  var productomayorcantidadbolsas;
-  var preciomasbarato;
-  var productomasbarato;
-
+  //var bolsasYerba;
+  //var precioYerba;
+  //var totalYerba;
+ 
   seguir = true;
-  bolsasYerba = 0;
-  precioYerba = 0;
-  bolsasAzucar = 0;
-  precioAzucar = 0;
-  bolsasCafe = 0;
-  precioCafe = 0;
-  mayorcantidadbolsas = 0;
-  preciomasbarato = 0;
+  //bolsasYerba = 0;
+  //precioYerba = 0;
+  //totalYerba = 0;
+
+
+  //mayorcantidadbolsas = 0;
+  //preciomasbarato = 0;
 
   while(seguir == true)
   {
-    productoIngresado = prompt("Ingrese el producto alimenticio: ");
-
+    productoIngresado = prompt("Ingrese el producto alimenticio: yerba/azucar/cafe");
     while(productoIngresado != "yerba" && productoIngresado != "azucar" && productoIngresado != "cafe")
     {
-      productoIngresado = prompt("Error... Reingrese el producto alimenticio (yerba/azucar/cafe): ");
+      productoIngresado = prompt("Error... Reingrese el producto alimenticio yerba/azucar/cafe ");
     }
 
-    cantidaddebolsas = prompt("Ingrese la cantidad de bolsas del producto: ");
+    cantidaddebolsas = prompt("Ingrese la cantidad de bolsas del producto:");
     cantidaddebolsas = parseInt(cantidaddebolsas);
 
     while(isNaN(cantidaddebolsas) || cantidaddebolsas < 1)
     {
-     cantidaddebolsas = prompt("Error... Reingrese la cantidad de bolsas: ");
+     cantidaddebolsas = prompt("Error... Reingrese la cantidad de bolsas:");
      cantidaddebolsas = parseInt(cantidaddebolsas);
     }
 
-    precioporbolsa = prompt("Ingrese el precio por bolsa: ");
+    precioporbolsa = prompt("Ingrese el precio por bolsa:");
     precioporbolsa = parseFloat (precioporbolsa);
 
     while(isNaN(precioporbolsa) || precioporbolsa < 1)
     {
-      precioporbolsa = prompt("Error... Reingrese el precio por bolsa: ");
+      precioporbolsa = prompt("Error... Reingrese el precio por bolsa:");
       precioporbolsa = parseFloat(precioporbolsa);
     }   
    
-    seguir = confirm("Quiere ingresar otro producto?");
-
-    switch(productoIngresado)
+    subtotal
+    /*switch(productoIngresado)
     {
       case "yerba":
-      bolsasYerba = bolsasYerba + cantidaddebolsas;
-      precioYerba = precioporbolsa * bolsasYerba; 
-
-      if(mayorcantidadbolsas < bolsasYerba)
-      {
-        mayorcantidadbolsas = bolsasYerba;
-        productomayorcantidadbolsas = productoIngresado;
-      }
-
-      if (preciomasbarato > precioYerba) 
-      {
-        preciomasbarato = precioYerba;
-        productomasbarato = productoIngresado;
-      }
+      bolsasYerba = bolsasYerba + cantidaddebolsas; // contador inicializar
+      precioYerba = precioporbolsa * bolsasYerba;  //inicializar
+      totalYerba = totalYerba + precioYerba; //acumulador suma inicializar  
       break;
 
       case "azucar":
-      bolsasAzucar = bolsasAzucar + cantidaddebolsas;
+      bolsasAzucar = bolsasAzucar + cantidaddebolsas;//contador
       precioAzucar = precioporbolsa * bolsasAzucar;
+      total
       
       if(mayorcantidadbolsas < bolsasAzucar)
       {
@@ -125,7 +101,7 @@ function mostrar()
         productomasbarato = productoIngresado;
       }
       break;
-    }
+    }*/
     
     bolsasTotal = bolsasYerba + bolsasAzucar + bolsasCafe;
     precioTotal = precioYerba + precioAzucar + precioCafe; 
@@ -142,6 +118,8 @@ function mostrar()
     {
       descuento = 0;
     }
+
+    seguir = confirm("Quiere ingresar otro producto?");
   } 
 
   precioDescuento = precioTotal - (precioTotal * descuento/100); 
