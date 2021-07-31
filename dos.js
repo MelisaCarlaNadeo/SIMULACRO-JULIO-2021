@@ -19,14 +19,30 @@ function mostrar()
   var productoIngresado;
   var cantidaddebolsas;
   var precioporbolsa;
-  //var bolsasYerba;
-  //var precioYerba;
-  //var totalYerba;
+  var bolsasYerba;
+  var precioYerba;
+  var totalYerba;
+  var bolsasAzucar;
+  var precioAzucar;
+  var totalAzucar;
+  var bolsasCafe;
+  var precioCafe;
+  var totalCafe;
+  var bolsasTotal;
+  var precioTotal;
+  var descuento;
+  var precioDescuento;
+  var mayorcantidadbolsas;
+  var compramasbarata;
  
   seguir = true;
-  //bolsasYerba = 0;
-  //precioYerba = 0;
-  //totalYerba = 0;
+  bolsasYerba = 0;
+  totalYerba = 0;
+  bolsasAzucar = 0;
+  totalAzucar = 0;
+  bolsasCafe = 0;
+  totalCafe = 0;
+  precioDescuento = 0;
 
 
   //mayorcantidadbolsas = 0;
@@ -58,74 +74,93 @@ function mostrar()
       precioporbolsa = parseFloat(precioporbolsa);
     }   
    
-    subtotal
-    /*switch(productoIngresado)
+    
+    switch(productoIngresado)
     {
       case "yerba":
       bolsasYerba = bolsasYerba + cantidaddebolsas; // contador inicializar
-      precioYerba = precioporbolsa * bolsasYerba;  //inicializar
+      precioYerba = precioporbolsa * bolsasYerba;  
       totalYerba = totalYerba + precioYerba; //acumulador suma inicializar  
       break;
 
       case "azucar":
       bolsasAzucar = bolsasAzucar + cantidaddebolsas;//contador
       precioAzucar = precioporbolsa * bolsasAzucar;
-      total
-      
-      if(mayorcantidadbolsas < bolsasAzucar)
-      {
-        mayorcantidadbolsas = bolsasAzucar;
-        productomayorcantidadbolsas = productoIngresado;
-      }
-
-      if (preciomasbarato > precioAzucar) 
-      {
-        preciomasbarato = precioAzucar;
-        productomasbarato = productoIngresado;
-      }
+      totalAzucar = totalAzucar + precioAzucar; acumulador
       break;
       
       default:
       bolsasCafe = bolsasCafe + cantidaddebolsas;
       precioCafe = precioporbolsa * bolsasCafe;
-
-      if(mayorcantidadbolsas < bolsasCafe)
-      {
-        mayorcantidadbolsas = bolsasCafe;
-        productomayorcantidadbolsas = productoIngresado;
-      }
-
-      if (preciomasbarato > precioCafe)
-      {
-        preciomasbarato = precioCafe;
-        productomasbarato = productoIngresado;
-      }
+      totalCafe = totalCafe + precioCafe;
       break;
-    }*/
+
+    }
     
-    bolsasTotal = bolsasYerba + bolsasAzucar + bolsasCafe;
-    precioTotal = precioYerba + precioAzucar + precioCafe; 
-
-    if(bolsasTotal > 4)
-    {
-      descuento = 10;
-    }
-    if(bolsasTotal > 9)
-    {
-      descuento = 15;
-    }
-    else 
-    {
-      descuento = 0;
-    }
-
     seguir = confirm("Quiere ingresar otro producto?");
   } 
+
+
+  if(bolsasYerba > bolsasAzucar &&  bolsasYerba > bolsasCafe)
+  {
+    mayorcantidadbolsas = "Yerba";
+  }
+  else 
+  {
+    if (bolsasAzucar > bolsasYerba &&  bolsasAzucar > bolsasCafe)
+    {
+      mayorcantidadbolsas = "Azucar";
+    }
+    else
+    {
+      mayorcantidadbolsas = "Cafe";
+    }
+  }
+
+  if(totalYerba < totalAzucar &&  totalYerba < totalCafe)
+  {
+    compramasbarata = "Yerba";
+  }
+  else 
+  {
+    if (totalAzucar < totalYerba &&  totalAzucar < totalCafe)
+    {
+      compramasbarata = "Azucar";
+    }
+    else
+    {
+      compramasbarata = "Cafe";
+    }
+  }
+
+  bolsasTotal = bolsasYerba + bolsasAzucar + bolsasCafe;
+  precioTotal = precioYerba + precioAzucar + precioCafe; 
+
+  if(bolsasTotal > 4)
+  {
+    descuento = 10;
+  }
+  if(bolsasTotal > 9)
+  {
+    descuento = 15;
+  }
+  else 
+  {
+      descuento = 0;
+  }
 
   precioDescuento = precioTotal - (precioTotal * descuento/100); 
 
   document.write("El importe total a pagar sin descuento es $ " + precioTotal + "<br>");
-  document.write("El importe total a pagar con descuento es $ " + precioDescuento + "<br>");
-  document.write("El producto con más cantidad es " + productomayorcantidadbolsas + " con " + mayorcantidadbolsas + " bolsas. " + "<br>");
-  document.write("El producto más barato es " + productomasbarato + ". ");
+  if(precioDescuento > 0)
+  {
+    document.write("El importe total a pagar con descuento es $ " + precioDescuento + "<br>");
+  }
+  document.write("El producto con más cantidad es " + mayorcantidadbolsas + "<br>");
+  document.write("El producto más barato es " + compramasbarata + ". ");
 }
+/*Se pide mostrar por pantalla:
+a)  El importe total a pagar bruto, sin descuento.
+b)  El importe total a pagar con descuento (solo si corresponde)
+c)  Informar el tipo con más cantidad de bolsas.
+d)  El tipo de la compra más barata. (sobre el Bruto sin descuento)*/

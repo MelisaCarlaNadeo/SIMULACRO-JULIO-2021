@@ -23,35 +23,35 @@ function mostrar()
 	var cantidadIngresada;
 	var marcaIngresada;
 	var capacidadIngresada;
-	var precioFinal;
 	var preciominimoSDD;
 	var banderaminimoSDD;
 	var cantidadminimoSDD;
-	var marcaminimoSDD;
+	var marcaminimoSDD; 
 	var preciomaximoHDD;
 	var banderamaximoHDD;
 	var capacidadmaximaHDD;
 	var cantidadmaximaHDD; 
-	var banderamaximoHDD;
 	var contadorHDD; 
 	
 	
 	contador = 0;
-	banderaminimoSDD = 0;
-	banderamaximoHDD = 0;
+	banderaminimoSDD = true;
+	banderamaximoHDD = true;//
 	contadorHDD = 0;
+	preciominimoSDD = 0;
+	preciomaximoHDD = 0;
 
 		
 	while (contador < 5)
 	{
 		productoIngresado = prompt("Ingrese el producto deseado : HDD/SDD/SSDM2");
-		while (productoIngresado != "HDD" && productoIngresado != "SSD" && productoIngresado != "SSDM2")
+		while (productoIngresado != "HDD" && productoIngresado != "SDD" && productoIngresado != "SSDM2")
 		{
 			productoIngresado = prompt("Error... Reingrese  el producto deseado : HDD/SDD/SSDM2");
 		}
 
 		precioIngresado = prompt("Ingrese el precio del producto:");
-		precioIngresado = parsefloat(precioIngresado);
+		precioIngresado = parseFloat(precioIngresado);
 		while (isNaN(precioIngresado) || precioIngresado < 5000 || precioIngresado > 18000)
 		{
 			precioIngresado = prompt("Error... Reingrese el precio del producto: ");
@@ -59,8 +59,8 @@ function mostrar()
 		}
 
 		cantidadIngresada = prompt("Ingrese la cantidad del producto:");
-		cantidadIngresada = parseInt(cantidadIngresada)
-		while (isNaN(cantidadIngresada) || precioIngresado < 1 || precioIngresado > 50)
+		cantidadIngresada = parseInt(cantidadIngresada);
+		while (isNaN(cantidadIngresada) || cantidadIngresada < 1 || cantidadIngresada > 50)
 		{
 			cantidadIngresada = prompt("Error... Reingrese la cantidad del producto:");
 			cantidadIngresada = parseInt(cantidadIngresada);
@@ -78,41 +78,60 @@ function mostrar()
 			capacidadIngresada = prompt("Error... Reingrese la capacidad del producto. ");
 		}
 
-		precioFinal = cantidadIngresada * precioIngresado; //ver esto que NO va
-
-		//a) Del más barato de los SSD, la cantidad de unidades y marca.
-		if(productoIngresado == "SDD")
+		switch(productoIngresado)
 		{
-			if(precioFinal < preciominimoSDD|| banderaminimoSDD == true)
+			case "HDD": //Del tipo HDD, el de mayor precio, capacidad de almacenamiento y cantidad de unidades disponibles. 
 			{
-				preciominimoSDD = precioFinal;
-				cantidadminimoSDD = cantidadIngresada;
-				marcaminimoSDD = marcaIngresada;
-				banderaminimoSDD = false;
-			}
-		}
-		else //b) Del tipo HDD, el de mayor precio, capacidad de almacenamiento y cantidad de unidades disponibles. 
-		{
-			if(productoIngresado == "HDD")
-			{
-				if(precioFinal > preciomaximoHDD || banderamaximoHDD == true)
+				if(preciomaximoHDD > precioIngresado || banderamaximoHDD == true)
 				{
-					preciomaximoHDD = precioFinal;
+					preciomaximoHDD = precioIngresado;
 					capacidadmaximaHDD = capacidadIngresada;
 					cantidadmaximaHDD = cantidadIngresada;
 					banderamaximoHDD = false;
-				} 
-				//c) Cuántas unidades de HDD hay en total.
+				} //c) Cuántas unidades de HDD hay en total.
+
 				contadorHDD = contadorHDD + cantidadIngresada;
 			}
+			break;
+
+			case"SDD": //a) Del más barato de los SSD, la cantidad de unidades y marca.
+			{
+				if(preciominimoSDD < precioIngresado || banderaminimoSDD == true)
+				{
+					preciominimoSDD = precioIngresado;
+					cantidadminimoSDD = cantidadIngresada;
+					marcaminimoSDD = marcaIngresada;
+					banderaminimoSDD = false;
+				}
+			}
+			break;
+
+			default:
+			break;
 		}
-		
+
 		contador++;
 	}
 
-	document.write("Del más barato de los SSD, la cantidad de unidades es: " + cantidadminimoSDD + "y la marca es: " + marcaminimoSDD + "<br>");
-	document.write("Del más caro de los HDD, la capacidad de almacenamiento es: " + capacidadmaximaHDD + "y la cantidad de unidades es: " + cantidadmaximaHDD + "<br>");
-	document.write("La cantidad total de unidades HDD es " + contadorHDD);
+	if (preciominimoSDD != 0)
+	{
+		document.write("Del más barato de los SSD, la cantidad de unidades es: " + cantidadminimoSDD + "y la marca es: " + marcaminimoSDD + "<br>");
+	}
+	else
+	{
+		document.write("No se ingresaron discos del tipo SDD.")
+	}
+	
+	if (preciomaximoHDD != 0)
+	{
+		document.write("Del más caro de los HDD, la capacidad de almacenamiento es: " + capacidadmaximaHDD + "y la cantidad de unidades es: " + cantidadmaximaHDD + "<br>");
+		document.write("La cantidad total de unidades HDD es " + contadorHDD);
+	}
+	else
+	{
+		document.write("No se ingresaron discos del tipo HDD.")
+	}
+	
 }
 /*Se debe Informar al usuario lo siguiente:
 a) Del más barato de los SSD, la cantidad de unidades y marca.
