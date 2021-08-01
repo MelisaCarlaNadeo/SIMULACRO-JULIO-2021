@@ -82,7 +82,7 @@ function mostrar()
 		{
 			case "HDD": //Del tipo HDD, el de mayor precio, capacidad de almacenamiento y cantidad de unidades disponibles. 
 			{
-				if(preciomaximoHDD > precioIngresado || banderamaximoHDD == true)
+				if(preciomaximoHDD < precioIngresado || banderamaximoHDD == true)
 				{
 					preciomaximoHDD = precioIngresado;
 					capacidadmaximaHDD = capacidadIngresada;
@@ -96,7 +96,7 @@ function mostrar()
 
 			case"SDD": //a) Del más barato de los SSD, la cantidad de unidades y marca.
 			{
-				if(preciominimoSDD < precioIngresado || banderaminimoSDD == true)
+				if(preciominimoSDD > precioIngresado || banderaminimoSDD == true)
 				{
 					preciominimoSDD = precioIngresado;
 					cantidadminimoSDD = cantidadIngresada;
