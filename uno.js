@@ -133,7 +133,183 @@ function mostrar()
 	}
 	
 }
-/*Se debe Informar al usuario lo siguiente:
-a) Del más barato de los SSD, la cantidad de unidades y marca.
-b) Del tipo HDD, el de mayor precio, capacidad de almacenamiento y cantidad de unidades disponibles. 
-c) Cuántas unidades de HDD hay en total.*/
+/*
+----CUANDO HAY UNA CANTIDAD DETERMINADA:
+contador = 0; 
+while (contador < )
+{
+	contador++;
+}
+
+
+CUANDO SE PUEDE INGRESAR HASTA QUE EL USUARIO QUIERA:
+seguir = true;
+while(seguir == true)
+{
+  	seguir = confirm("Quiere ingresar otro ?");
+} 
+
+
+----CUANDO SE INGRESAN LETRAS O PALABRAS: 
+	= prompt("Ingrese :");
+	while ( != "" &&  != "" &&  != "")
+	{
+		= prompt("Error... Reingrese : ");
+	}
+
+CUANDO SE INGRESAN NÚMEROS:
+	= prompt("Ingrese :");
+	= parseFloat();
+	while (isNaN() ||  <  || precioIngresado > )
+	{
+		= prompt("Error... Reingrese : ");
+		= parseFloat();
+	}
+
+	= prompt("Ingrese :");
+	= parseInt();
+	while (isNaN() ||  <  || precioIngresado > )
+	{
+		= prompt("Error... Reingrese : ");
+		= parseInt();
+	}
+
+
+---CUANDO SE USA SWITCH PARA VARIOS CASOS:
+		switch()
+		{
+			case "":  
+			{
+
+			}
+			break;
+
+			case"": 
+			{
+
+			}
+			break;
+
+			default:
+			break;
+		}
+
+
+---BANDERAS:
+banderamaximo = true;
+
+	if(maximo <  || banderamaximo == true)
+	{
+		banderamaximo = false;
+	} 
+
+banderaminimo = true;
+
+	if(minimo >  || banderaminimo == true)
+	{
+		banderaminimo = false;
+	}
+
+
+PARA MOSTRAR CANTIDADES TOTALES: (DENTRO DEL SWITCH)
+contador... = 0;
+contador = contador + ;
+
+
+----OTROS PEDIDOS:
+PARA MOSTRAR SUMAR LA CANTIDAD INGRESADA Y CALCULAR EL PRECIO TOTAL DEL TIPO INGRESADO: (DENTRO DEL SWITCH)
+ 	
+ 	bolsas = bolsas + cantidaddebolsas; // contador inicializar
+   precio = precioporbolsa * bolsas;  
+   total = total + precio; //acumulador suma inicializar 
+
+PARA BUSCAR MAYOR CANTIDAD DEL TOTAL DE UN PRODUCTO INGRESADO: (FUERA DEL WHILE) 
+	if(bolsas > bolsas &&  bolsas > bolsas)
+	  {
+	    mayorcantidadbolsas = "";
+	  }
+	  else 
+	  {
+	    if (bolsas > bolsas &&  bolsas > bolsas)
+	    {
+	      mayorcantidadbolsas = "";
+	    }
+	    else
+	    {
+	      mayorcantidadbolsas = "";
+	    }
+	  }
+
+PARA BUSCAR COMPRA MÁS BARATA: (FUERA DEL WHILE)
+if(total < total &&  total < total)
+  {
+    compramasbarata = "";
+  }
+  else 
+  {
+    if (total < total &&  total < total)
+    {
+      compramasbarata = "";
+    }
+    else
+    {
+      compramasbarata = "";
+    }
+  }
+
+PARA CALCULAR TOTAL DE CANTIDADES Y EL PRECIO TOTAL BRUTO (FUERA DEL WHILE)
+bolsasTotal = bolsas + bolsas + bolsas;
+precioTotal = precio + precio + precio; 
+
+PARA CALCULAR DESCUENTOS (FUERA DEL WHILE)
+	if(bolsasTotal > )
+	{
+	   descuento = ;
+	}
+	if(bolsasTotal > )
+	{
+	   descuento = ;
+	}
+	else 
+	{
+	   descuento = 0;
+	}
+   precioDescuento = precioTotal - (precioTotal * descuento/100); 
+
+PARA PROMEDIOS (EJERCICIO TRES DEL SIMULACRO)
+
+  
+----PARA MOSTRAR LOS DATOS OBTENIDOS:
+document.write(" " +  + "<br>");
+
+PARA MOSTRAR CUANDO NO SE INGRESA UN TIPO DE PRODUCTO O DATOS  Y SE CALCULARON MÁXIMOS O MÍNIMOS :
+	preciominimo = 0; SE INICIALIZA
+	preciomaximo = 0; SE INICIALIZA
+
+	if (minimo != 0)
+	{
+		document.write(" " +  + "<br>");
+	}
+	else
+	{
+		document.write("No se ingresaron .")
+	}
+	
+
+	if (maximo != 0)
+	{
+		document.write(" " +  + " " +  + "<br>");
+	}
+	else
+	{
+		document.write("No se ingresaron .")
+	}
+
+PARA MOSTRAR EL PRECIO CON  Y SIN DESCUENTO:
+	precioDescuento = 0; HAY QUE INICIALIZARLO
+
+	document.write("El importe total a pagar sin descuento es $ " + precioTotal + "<br>");
+ 	if(precioDescuento > 0)
+   {
+     document.write("El importe total a pagar con descuento es $ " + precioDescuento + "<br>");
+   }

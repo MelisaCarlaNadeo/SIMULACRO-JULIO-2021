@@ -138,7 +138,7 @@ function mostrar()
   	document.write("La cantidad personas de género femenino que recibieron la vacuna SputnikV es:  " + contadormujeresSputnikV + "<br>");
   	document.write("La cantidad de personas de género no binario que recibieron AstraZeneca u Otra es:  " + totalpersonasNB + "<br>");
   	document.write("La cantidad de personas que se aplicaron la vacuna AstraZeneca y presentaron una temperatura mayor a 38° es: " + contadortemperaturamayor38 + "<br>");
-  	if (contadorhombressinTemperatura < 0)
+  	if (contadorhombressinTemperatura > 0)
   	{
   		document.write("El promedio de edad de los hombres que se aplicaron la vacuna SputnikV y que no presentaron fiebre es :  " + promediohombressinfiebre);
   	}
